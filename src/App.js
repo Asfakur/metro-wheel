@@ -10,6 +10,8 @@ import {
   Link
 } from "react-router-dom";
 import { createContext, useState } from 'react';
+import Destination from './components/Destination/Destination';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext();
 
@@ -30,6 +32,10 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
+
+          <PrivateRoute path="/destination">
+            <Destination />
+          </PrivateRoute>
 
           <Route exact path="/">
             <Home />

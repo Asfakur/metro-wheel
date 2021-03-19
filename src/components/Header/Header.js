@@ -14,6 +14,11 @@ const Header = () => {
                         <li>
                             <Link to="/home">Home</Link>
                         </li>
+
+                        <li>
+                            <Link to="/destination">Destination</Link>
+                        </li>
+
                         <li>
                             <Link to="/login">{loggedInUser.name ? loggedInUser.name : 'Login'}</Link>
                         </li>
