@@ -13,11 +13,11 @@ import { createContext, useState } from 'react';
 import Destination from './components/Destination/Destination';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
-export const UserContext = createContext();
+export const UserContext = createContext(); 
 
 function App() {
 
-  const [loggedInUser, setLoggedInUser] = useState({});
+  const [loggedInUser, setLoggedInUser] = useState({}); //one person can log in or not so it is initially empty
 
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
@@ -33,9 +33,13 @@ function App() {
             <Login />
           </Route>
 
-          <PrivateRoute path="/destination">
+          <Route path="/destination/:vehicle">
             <Destination />
-          </PrivateRoute>
+          </Route>
+
+          {/* <PrivateRoute path="/destination">
+            <Destination />
+          </PrivateRoute> */}
 
           <Route exact path="/">
             <Home />
