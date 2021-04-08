@@ -20,9 +20,7 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({}); //one person can log in or not so it is initially empty
 
   return (
-    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      <h3>User Name: {loggedInUser.name}</h3>
-      
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>      
       <Router>
         <Header />
         <Switch>
@@ -33,13 +31,9 @@ function App() {
             <Login />
           </Route>
 
-          <Route path="/destination/:vehicle">
+          <PrivateRoute path="/destination/:vehicle">
             <Destination />
-          </Route>
-
-          {/* <PrivateRoute path="/destination">
-            <Destination />
-          </PrivateRoute> */}
+          </PrivateRoute>
 
           <Route exact path="/">
             <Home />

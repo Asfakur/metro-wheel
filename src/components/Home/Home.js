@@ -19,8 +19,6 @@ const Home = () => {
 
     return (
         <div>
-            <h1>This is home</h1>
-
             <div className="container-fluid">
                 <div className="row bg-info d-flex justify-content-around"> 
                         {

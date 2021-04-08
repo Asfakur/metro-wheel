@@ -39,7 +39,7 @@ export const signInWithEmailAndPassword = (email, password) => {
     return firebase.auth().signInWithEmailAndPassword(email, password)
         .then((result) => {
             // Signed in
-            alert(result.user.displayName + ' Logged in successfully');
+            // alert(result.user.displayName + ' Logged in successfully');
             return result.user;
         })
         .catch((error) => {

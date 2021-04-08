@@ -53,9 +53,10 @@ const Login = () => {
     }
 
     const handleSubmit = (e) => {
-        if (createUser && user.userName && user.email && user.email) {
+        if (createUser && user.userName && user.email && user.password) {
             // console.log(user);
-            createUserWithEmailAndPassword(user.userName, user.email, user.password)
+            if(user.password === user.repeatPassword){
+                createUserWithEmailAndPassword(user.userName, user.email, user.password)
                 .then(res => {
 
                     //auto login, its call the sign in email and pass method automatically
@@ -65,6 +66,10 @@ const Login = () => {
                         })
                     //auto login ends
                 })
+            }
+            else{
+                alert("Password doesn't matched");
+            }
         }
 
         if (!createUser && user.email && user.email) {
@@ -95,32 +100,57 @@ const Login = () => {
 
 
     return (
-        <div>
-            <h1>This is login</h1>
+        <div className="row justify-content-center align-items-center">
 
-            <input type="checkbox" onChange={() => setCreateUser(!createUser)} name="newUser" />
-            <label htmlFor="newUser">New User Sign Up</label>
+            <div className="col-sm-3 bg-secondary m-3 p-5 rounded">
+                <h1>This is login</h1>
 
-            <form onSubmit={handleSubmit}>
 
-                {createUser && <input type="text" name="userName" onBlur={handleBlur} placeholder="Your user name" required />
-                }
-                <br />
 
-                <input type="email" name="email" onBlur={handleBlur} placeholder="Your email address" required />
-                <br />
+                <form onSubmit={handleSubmit}>
 
-                <input type="password" name="password" onBlur={handleBlur} placeholder="Password" required />
-                <br />
+                    {createUser && <div className="form-group">
+                        <input type="text" className="form-control" name="userName" onBlur={handleBlur} placeholder="User name" required />
+                    </div>
+                    }
 
-                <input type="submit" value={createUser ? 'Sign Up' : 'Sign In'} />
-            </form>
+                    <div className="form-group">
+                        <input type="email" className="form-control" name="email" onBlur={handleBlur} placeholder="Your email address" required />
+                    </div>
 
-            <br />
-            <button onClick={googleSignIn}>Continue with google</button>
+                    <div className="form-group">
+                        <input type="password" className="form-control" name="password" onBlur={handleBlur} placeholder="Password" required />
+                    </div>
 
-            <br />
-            <button onClick={fbSignIn}>Continue with Facebook</button>
+                    {
+                        createUser &&
+                        <div className="form-group">
+                            <input type="password" className="form-control" name="repeatPassword" onBlur={handleBlur} placeholder="Repeat Password" required />
+                        </div>
+                    }
+
+                    <div className="form-group">
+                        <input type="submit" className="btn btn-warning btn-block" value={createUser ? 'Sign Up' : 'Sign In'} />
+                    </div>
+
+                </form>
+
+                <input type="checkbox" onChange={() => setCreateUser(!createUser)} name="newUser" />
+                <label htmlFor="newUser">Don't have an account? <span>Sign Up</span></label>
+
+                <hr />
+
+
+                <div className="form-group">
+                    <button className="btn bg-white btn-block" onClick={googleSignIn}>Continue with google</button>
+                </div>
+
+                <div className="form-group">
+                    <button className="btn bg-white btn-block" onClick={fbSignIn}>Continue with Facebook</button>
+                </div>
+
+
+            </div>
         </div>
     );
 };

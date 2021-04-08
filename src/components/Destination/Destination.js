@@ -21,7 +21,7 @@ const Destination = () => {
     const { id, name, img, cost } = transports[vehicle - 1];
 
     const onSubmit = data => {
-        
+
         setResult(data);
         setIsSearch(!isSearch);
     };
@@ -37,11 +37,7 @@ const Destination = () => {
     return (
 
         <div className="row container-fluid">
-            <div className="col-md-3 bg-info">
-                <h3>Destination Picker by {name}</h3>
-
-                {/* <LocationForm></LocationForm> */}
-
+            <div className="col-md-3 bg-secondary text-white rounded">
 
                 {
                     !isSearch ? <div>
@@ -65,25 +61,29 @@ const Destination = () => {
                                 </select>
                             </div>
 
-                            <input className="btn btn-success" type="submit" value="Search" />
+                            <input className="btn btn-warning btn-block" type="submit" value="Search" />
                         </form>
                     </div>
 
                         :
 
                         <div>
-                            <h1>Search Result</h1>
+                            <div className="bg-dark rounded text-center m-2">
+                                <h3>{result.fromLocation} To</h3>
+                                <h3>{result.toLocation}</h3>
+                            </div>
 
-                            <h3>{result.fromLocation} To {result.toLocation}</h3>
-                            <div>
+                            <div className="d-flex justify-content-around bg-light text-dark p-2 rounded m-2">
                                 <img className="rounded" src={img} height="45px" width="60px" alt="" />
                                 <h4>{name}</h4>
                                 <h4>4</h4>
                                 <h4>$ {cost}</h4>
                             </div>
 
+                            <div className="m-2">
+                                <button className="btn btn-warning btn-block " onClick={handleBackSearch}>Back To Search</button>
+                            </div>
 
-                            <button className="btn btn-warning" onClick={handleBackSearch}>Back To Search</button>
                         </div>
                 }
 
