@@ -89,18 +89,11 @@ const Destination = () => {
                         </div>
                 }
 
-
-
-
             </div>
 
+            {/* map include */}
             <div className="col-md-9 rounded">
-                {/* <h3>Google Map</h3> */}
-                {/* <Map></Map> */}
-                {
-                     <Direction direction={result}></Direction>
-                }
-                
+                <Direction direction={result}></Direction>
             </div>
         </div>
     );
