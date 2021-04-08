@@ -4,6 +4,8 @@ import { useParams } from 'react-router';
 import locationName from '../../fakeData/fakeLocations';
 import transportDetails from '../../fakeData/fakeTransport';
 import Direction from '../Map/Direction';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserFriends } from '@fortawesome/free-solid-svg-icons'
 
 const Destination = () => {
 
@@ -68,14 +70,15 @@ const Destination = () => {
                         :
 
                         <div>
-                            <div className="bg-dark rounded text-center m-2">
+                            <div className="bg-dark rounded text-center m-2 p-2">
                                 <h3>{result.fromLocation} To</h3>
                                 <h3>{result.toLocation}</h3>
                             </div>
 
-                            <div className="d-flex justify-content-around bg-light text-dark p-2 rounded m-2">
+                            <div className="d-flex justify-content-around align-items-center bg-light text-dark p-2 rounded m-2">
                                 <img className="rounded" src={img} height="45px" width="60px" alt="" />
                                 <h4>{name}</h4>
+                                <h4><FontAwesomeIcon className="fa-1x" icon={faUserFriends} /></h4>
                                 <h4>4</h4>
                                 <h4>$ {cost}</h4>
                             </div>

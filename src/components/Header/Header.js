@@ -8,22 +8,18 @@ const Header = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     return (
         <div>
-            <div className="header">
+            <div className="nav navbar navbar-dark bg-primary">
                 <nav className="nav">
                     <ul>
                         <li>
-                            <Link to="/home">Home</Link>
+                            <Link to="/home">Metro-Wheel</Link>
                         </li>
-
                         <li>
                             <Link to="/destination">Destination</Link>
                         </li>
 
                         <li>
                             <Link to="/login">{loggedInUser.name ? loggedInUser.name : 'Login'}</Link>
-                        </li>
-                        <li>
-                            <Link className="btn-book" to="/book">Book</Link>
                         </li>
                     </ul>
                 </nav>

@@ -18,9 +18,9 @@ const Home = () => {
     }
 
     return (
-        <div>
+        <div style={{backgroundImage: `url("https://images.unsplash.com/photo-1595698612005-09bb2f1197e1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1776&q=80")`, backgroundRepeat: 'repeat-y', backgroundSize: 'cover', height: '650px'}}>
             <div className="container-fluid">
-                <div className="row bg-info d-flex justify-content-around"> 
+                <div className="row d-flex justify-content-around p-5"> 
                         {
                             transports.map(transport => 
                             <Transport bookTickets={bookTickets} transport={transport} key={transport.id}></Transport>

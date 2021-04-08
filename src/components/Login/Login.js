@@ -3,6 +3,12 @@ import "firebase/auth";
 import { initializeLoginFramework, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithGoogle, signInWithFb } from './loginManager';
 import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {  faFacebook } from '@fortawesome/free-brands-svg-icons';
+import {  faGoogle } from '@fortawesome/free-brands-svg-icons';
+
+
+
 
 const Login = () => {
 
@@ -68,7 +74,7 @@ const Login = () => {
                 })
             }
             else{
-                alert("Password doesn't matched");
+                alert("Password combinations doesn't matched");
             }
         }
 
@@ -100,10 +106,10 @@ const Login = () => {
 
 
     return (
-        <div className="row justify-content-center align-items-center">
+        <div className="row container-fluid justify-content-center align-items-center">
 
             <div className="col-sm-3 bg-secondary m-3 p-5 rounded">
-                <h1>This is login</h1>
+                <h2>Login</h2>
 
 
 
@@ -142,11 +148,11 @@ const Login = () => {
 
 
                 <div className="form-group">
-                    <button className="btn bg-white btn-block" onClick={googleSignIn}>Continue with google</button>
+                    <button className="btn bg-white btn-block" onClick={googleSignIn}><FontAwesomeIcon className="fa-2x text-success float-left"   icon={faGoogle} /> Continue with Google</button>
                 </div>
 
                 <div className="form-group">
-                    <button className="btn bg-white btn-block" onClick={fbSignIn}>Continue with Facebook</button>
+                    <button className="btn bg-white btn-block" onClick={fbSignIn}><FontAwesomeIcon className="fa-2x float-left" style={{color: '#4285F4'}} icon={faFacebook} /> Continue with Facebook </button>
                 </div>
 
 
