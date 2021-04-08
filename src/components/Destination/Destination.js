@@ -4,7 +4,6 @@ import { useParams } from 'react-router';
 import locationName from '../../fakeData/fakeLocations';
 import transportDetails from '../../fakeData/fakeTransport';
 import Direction from '../Map/Direction';
-import Map from '../Map/Map';
 
 const Destination = () => {
 
@@ -22,8 +21,7 @@ const Destination = () => {
     const { id, name, img, cost } = transports[vehicle - 1];
 
     const onSubmit = data => {
-        // console.log(data);
-
+        
         setResult(data);
         setIsSearch(!isSearch);
     };
